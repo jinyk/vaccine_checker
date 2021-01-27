@@ -1,0 +1,12 @@
+version: "3"
+services:
+    chromedriver:
+        image: selenium/standalone-chrome
+        ports: 
+        - "4444:4444"
+    app:
+        build: .
+        volumes:
+        - ./src:/app
+        links:
+        - chromedriver
